@@ -58,16 +58,36 @@ for(let i=1; i<=n4; i++){
 }
 let n = +prompt("Enter a number :");
 
-for(let i =1; i<=n; i++){
+// for(let i =1; i<=n; i++){
 
-    //normal pyramid
-    for(let j=1; j<=i;j++){
-        process.stdout.write(" ")
-    }
-    //inverted pyramid
-    for(let j=n; j>=i ; j--){
-        process.stdout.write("*")
-    }
+//     //normal pyramid
+//     for(let j=1; j<=i;j++){
+//         process.stdout.write(" ")
+//     }
+//     //inverted pyramid
+//     for(let j=n; j>=i ; j--){
+//         process.stdout.write("*")
+//     }
     
+//     console.log(" ")
+// }
+
+// for(let i=1; i<=n;i++){
+//     for(let j=1;j<=n;j++){
+//         if(i==j || i+j == n+1){
+//               process.stdout.write("* ")
+//         }
+//         else(process.stdout.write(" "))
+//     }
+//     console.log(" ")
+// }
+
+for(let i=1; i<=n;i++){
+    for(let j=1;j<=n*2;j++){
+        if(i==j || i+j == 2*n){
+              process.stdout.write("* ")
+        }
+        else(process.stdout.write(" "))
+    }
     console.log(" ")
 }
