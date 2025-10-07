@@ -12,3 +12,15 @@ for(let i=0;i<nums.length;i++){
    
 }
 console.log(maxSum);
+
+//Return the majority element - Moore's algorithm
+
+let num = [2,2,1,1,1,2,2]
+let ans = num[0]
+let count = 1
+for(let i=0;i<num.length;i++){
+    if(count==0) ans = num[i]
+    else if(num[i] == ans) count++
+    else count--  
+}
+console.log(ans)
