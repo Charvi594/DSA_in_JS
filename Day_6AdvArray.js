@@ -110,18 +110,41 @@ while(i<arr1.length){
 
 console.log(merge)
 
-//Find the maximum profit from the given set of prices of stock 
-//Best time to buy and sell stock
-
-let maxProfit = function(prices){
-    let maxProfit = 0;
+// //Find the maximum profit from the given set of prices of stock 
+// //Best time to buy and sell stock
+let maxProfit = function (prices){
     let min = prices[0]
-    for(let i=0; i <prices.length;i++){
-        if(prices[i]<min) min = prices[i]
-       let profit = prices[i] - min;
-        maxProfit = Math.max(profit,maxProfit)
-    }
-    return maxProfit
+    var maxProfit = 0
+for(let i=0;i<prices.length;i++){
+    if(prices[i]<min) min = prices[i]
+   let profit = prices[i] - min 
+     maxProfit= Math.max(maxProfit,profit)
+}
+return maxProfit;
 }
 
+
 console.log(maxProfit([7,1,5,3,6,4]))
+
+//Sort the colours
+let arr = [1,1,0,1,2,0,1,0,2,1,1]
+let a=0,b=0,c=arr.length-1
+while(a<=c){
+if(arr[a]==0) {
+    let temp = arr[a]
+    arr[a] = arr[b]
+    arr[b] = temp
+    a++, b++
+}
+else if(arr[a]==2){
+    let temp = arr[a]
+    arr[a] = arr[c]
+    arr[c] = temp
+    c--
+}
+else{
+    a++
+}
+
+}
+console.log(arr)
