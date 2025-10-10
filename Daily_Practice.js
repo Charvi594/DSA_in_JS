@@ -45,29 +45,68 @@ const prompt = require("prompt-sync")()
 
 //Modular Indexing
 
-let arr1=[1,2,3,4,5]
-let temp = new Array(arr1.length)
-let n1 = +prompt("Enter the value of n : ")
+// let arr1=[1,2,3,4,5]
+// let temp = new Array(arr1.length)
+// let n1 = +prompt("Enter the value of n : ")
 
-for(let i = 0; i<arr1.length;i++){
-    temp[i] = arr1[(i+n1)%arr1.length]
-}
-console.log(temp)
+// for(let i = 0; i<arr1.length;i++){
+//     temp[i] = arr1[(i+n1)%arr1.length]
+// }
+// console.log(temp)
 
-//Reversal algorithm
-let arr = [1,2,3,4,5,6]
-let k = +prompt("Enter the value of k : ")
-k%arr.length
-function swap(i,j){
-    while(i<j){
-        let temp = arr[i]
-        arr[i] = arr[j]
-        arr[j]= temp
-        i++;
-        j--;
+// //Reversal algorithm
+// let arr = [1,2,3,4,5,6]
+// let k = +prompt("Enter the value of k : ")
+// k%arr.length
+// function swap(i,j){
+//     while(i<j){
+//         let temp = arr[i]
+//         arr[i] = arr[j]
+//         arr[j]= temp
+//         i++;
+//         j--;
+//     }
+// }
+// swap(0,k-1)
+// swap(arr.length-1)
+// swap(arr.length-1)
+// console.log(arr)
+
+// //Remove duplicates from array
+// let arr2 = [0,0,1,1,1,2,2,3]
+// let j = 0;
+// for(let i=0;i<arr2.length;i++){
+//     if(arr2[i]!=arr2[j]){
+//         j++;
+//         arr2[j]=arr2[i]
+//     }
+// }
+// console.log(arr2.slice(0,j+1))
+
+//Merge and Sort array
+
+let a1 = [2,5,6] 
+let a2 = [1,3,4,8]
+let merge = new Array(a1.length+a2.length)
+let i=0,j=0,k=0;
+
+while(i<a1.length && j<a2.length){
+    if(a1[i]>a2[j]){
+        merge[k++]=a2[j++]
     }
+    else{
+        merge[k]=a1[i]
+        k++,i++
+    }}
+
+while(j<a2.length){
+
+        merge[k]=a2[j]
+    k++,j++
 }
-swap(0,k-1)
-swap(arr.length-1)
-swap(arr.length-1)
-console.log(arr)
+while(i<a1.length){
+   
+        merge[k]=a1[i]
+    k++,i++
+}
+console.log(merge)
