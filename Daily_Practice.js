@@ -50,6 +50,24 @@ let temp = new Array(arr1.length)
 let n1 = +prompt("Enter the value of n : ")
 
 for(let i = 0; i<arr1.length;i++){
-    temp[i] = arr1[(i-n1)%arr1.length]
+    temp[i] = arr1[(i+n1)%arr1.length]
 }
 console.log(temp)
+
+//Reversal algorithm
+let arr = [1,2,3,4,5,6]
+let k = +prompt("Enter the value of k : ")
+k%arr.length
+function swap(i,j){
+    while(i<j){
+        let temp = arr[i]
+        arr[i] = arr[j]
+        arr[j]= temp
+        i++;
+        j--;
+    }
+}
+swap(0,k-1)
+swap(arr.length-1)
+swap(arr.length-1)
+console.log(arr)
