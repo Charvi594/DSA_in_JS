@@ -110,3 +110,16 @@ while(i<a1.length){
     k++,i++
 }
 console.log(merge)
+
+//Best time to buy and sell stocks. Find the maximum profit
+var maxProfit = function(prices){
+    let maxprofit = 0;
+    let min = prices[0]
+    for(let i = 0; i<prices.length;i++){
+        if(prices[i]<min) min = prices[i]
+        profit = prices[i] - min
+        maxprofit = Math.max(profit,maxprofit)
+    }
+    return maxprofit;
+}
+console.log(maxProfit([7,1,5,3,6,4]))
