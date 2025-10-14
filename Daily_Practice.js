@@ -88,7 +88,7 @@ const prompt = require("prompt-sync")()
 let a1 = [2,5,6] 
 let a2 = [1,3,4,8]
 let merge = new Array(a1.length+a2.length)
-let i=0,j=0,k=0;
+var i=0,j=0,k=0;
 
 while(i<a1.length && j<a2.length){
     if(a1[i]>a2[j]){
@@ -115,7 +115,7 @@ console.log(merge)
 var maxProfit = function(prices){
     let maxprofit = 0;
     let min = prices[0]
-    for(let i = 0; i<prices.length;i++){
+    for(var i = 0; i<prices.length;i++){
         if(prices[i]<min) min = prices[i]
         profit = prices[i] - min
         maxprofit = Math.max(profit,maxprofit)
@@ -123,3 +123,28 @@ var maxProfit = function(prices){
     return maxprofit;
 }
 console.log(maxProfit([7,1,5,3,6,4]))
+
+//Sort the colours
+var sortColors = function(nums){
+     var i=0,j=0,k=nums.length-1;
+    while(i<=k){
+        if(nums[i]==0){
+            let temp = nums[i]
+            nums[i] = nums[j]
+            nums[j] = temp
+            i++,j++
+        }
+        else if(nums[i]==2){
+            let temp = nums[i]
+            nums[i] = nums[k]
+            nums[k] = temp
+            k--
+        }
+        else{
+            i++
+        }
+    }
+    return nums;
+}
+
+console.log(sortColors([2,0,2,1,1,0]))
