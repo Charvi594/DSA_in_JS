@@ -167,3 +167,18 @@ while(j>=0){
 let num1 = [1,2,3,0,0,0]
 merge(num1,3,[2,5,6],3)
 console.log(num1)
+
+//Remove duplicates from the array
+var removeDuplicates = function(num){
+    let j=0
+    for(let i=0;i<num.length;i++){
+        if(num[i]!=num[j]){
+            j++
+            num[j] = num[i]
+        }
+    }
+    return j+1
+}
+let num = [0,0,1,1,1,2,2,3,3,4]
+let k = removeDuplicates(num)
+console.log(num.slice(0,k))
