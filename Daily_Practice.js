@@ -83,46 +83,46 @@ const prompt = require("prompt-sync")()
 // }
 // console.log(arr2.slice(0,j+1))
 
-//Merge and Sort array
+// //Merge and Sort array
 
-let a1 = [2,5,6] 
-let a2 = [1,3,4,8]
-let merge = new Array(a1.length+a2.length)
-var i=0,j=0,k=0;
+// let a1 = [2,5,6] 
+// let a2 = [1,3,4,8]
+// let merge = new Array(a1.length+a2.length)
+// var i=0,j=0,k=0;
 
-while(i<a1.length && j<a2.length){
-    if(a1[i]>a2[j]){
-        merge[k++]=a2[j++]
-    }
-    else{
-        merge[k]=a1[i]
-        k++,i++
-    }}
+// while(i<a1.length && j<a2.length){
+//     if(a1[i]>a2[j]){
+//         merge[k++]=a2[j++]
+//     }
+//     else{
+//         merge[k]=a1[i]
+//         k++,i++
+//     }}
 
-while(j<a2.length){
+// while(j<a2.length){
 
-        merge[k]=a2[j]
-    k++,j++
-}
-while(i<a1.length){
+//         merge[k]=a2[j]
+//     k++,j++
+// }
+// while(i<a1.length){
    
-        merge[k]=a1[i]
-    k++,i++
-}
-console.log(merge)
+//         merge[k]=a1[i]
+//     k++,i++
+// }
+// console.log(merge)
 
-//Best time to buy and sell stocks. Find the maximum profit
-var maxProfit = function(prices){
-    let maxprofit = 0;
-    let min = prices[0]
-    for(var i = 0; i<prices.length;i++){
-        if(prices[i]<min) min = prices[i]
-        profit = prices[i] - min
-        maxprofit = Math.max(profit,maxprofit)
-    }
-    return maxprofit;
-}
-console.log(maxProfit([7,1,5,3,6,4]))
+// //Best time to buy and sell stocks. Find the maximum profit
+// var maxProfit = function(prices){
+//     let maxprofit = 0;
+//     let min = prices[0]
+//     for(var i = 0; i<prices.length;i++){
+//         if(prices[i]<min) min = prices[i]
+//         profit = prices[i] - min
+//         maxprofit = Math.max(profit,maxprofit)
+//     }
+//     return maxprofit;
+// }
+// console.log(maxProfit([7,1,5,3,6,4]))
 
 //Sort the colours
 var sortColors = function(nums){
@@ -148,3 +148,22 @@ var sortColors = function(nums){
 }
 
 console.log(sortColors([2,0,2,1,1,0]))
+
+//Merge sorted array(leetcode version)
+var merge = function(num1, m, num2,n){
+let i = m-1, j=n-1, k=m+n-1
+while(i>=0 && j>=0){
+    if(num1[i]>num2[j]){
+        num1[k--] = num1[i--]
+    }
+    else{
+        num1[k--] = num2[j--]
+    }
+}
+while(j>=0){
+    num1[k--]=num2[j--]
+}
+}
+let num1 = [1,2,3,0,0,0]
+merge(num1,3,[2,5,6],3)
+console.log(num1)
