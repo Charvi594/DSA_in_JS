@@ -182,3 +182,17 @@ var removeDuplicates = function(num){
 let num = [0,0,1,1,1,2,2,3,3,4]
 let k = removeDuplicates(num)
 console.log(num.slice(0,k))
+
+//Return maximum sum from subArray
+
+var maxSubArray = function(nums){
+let sum = 0;
+let maxSum = -Infinity;
+for(let i=0;i<nums.length;i++){
+    if(sum<0) sum=0;
+    sum+=nums[i]
+    maxSum = Math.max(sum,maxSum)
+}
+return maxSum;
+}
+console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
