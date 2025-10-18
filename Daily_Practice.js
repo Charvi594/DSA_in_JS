@@ -125,74 +125,126 @@ const prompt = require("prompt-sync")()
 // console.log(maxProfit([7,1,5,3,6,4]))
 
 //Sort the colours
-var sortColors = function(nums){
-     var i=0,j=0,k=nums.length-1;
-    while(i<=k){
-        if(nums[i]==0){
-            let temp = nums[i]
-            nums[i] = nums[j]
-            nums[j] = temp
-            i++,j++
-        }
-        else if(nums[i]==2){
-            let temp = nums[i]
-            nums[i] = nums[k]
-            nums[k] = temp
-            k--
-        }
-        else{
-            i++
-        }
-    }
-    return nums;
-}
+// var sortColors = function(nums){
+//      var i=0,j=0,k=nums.length-1;
+//     while(i<=k){
+//         if(nums[i]==0){
+//             let temp = nums[i]
+//             nums[i] = nums[j]
+//             nums[j] = temp
+//             i++,j++
+//         }
+//         else if(nums[i]==2){
+//             let temp = nums[i]
+//             nums[i] = nums[k]
+//             nums[k] = temp
+//             k--
+//         }
+//         else{
+//             i++
+//         }
+//     }
+//     return nums;
+// }
 
-console.log(sortColors([2,0,2,1,1,0]))
+// console.log(sortColors([2,0,2,1,1,0]))
 
-//Merge sorted array(leetcode version)
-var merge = function(num1, m, num2,n){
-let i = m-1, j=n-1, k=m+n-1
-while(i>=0 && j>=0){
-    if(num1[i]>num2[j]){
-        num1[k--] = num1[i--]
-    }
-    else{
-        num1[k--] = num2[j--]
-    }
-}
-while(j>=0){
-    num1[k--]=num2[j--]
-}
-}
-let num1 = [1,2,3,0,0,0]
-merge(num1,3,[2,5,6],3)
-console.log(num1)
+// //Merge sorted array(leetcode version)
+// var merge = function(num1, m, num2,n){
+// let i = m-1, j=n-1, k=m+n-1
+// while(i>=0 && j>=0){
+//     if(num1[i]>num2[j]){
+//         num1[k--] = num1[i--]
+//     }
+//     else{
+//         num1[k--] = num2[j--]
+//     }
+// }
+// while(j>=0){
+//     num1[k--]=num2[j--]
+// }
+// }
+// let num1 = [1,2,3,0,0,0]
+// merge(num1,3,[2,5,6],3)
+// console.log(num1)
 
-//Remove duplicates from the array
-var removeDuplicates = function(num){
-    let j=0
-    for(let i=0;i<num.length;i++){
-        if(num[i]!=num[j]){
-            j++
-            num[j] = num[i]
-        }
-    }
-    return j+1
-}
-let num = [0,0,1,1,1,2,2,3,3,4]
-let k = removeDuplicates(num)
-console.log(num.slice(0,k))
+// //Remove duplicates from the array
+// var removeDuplicates = function(num){
+//     let j=0
+//     for(let i=0;i<num.length;i++){
+//         if(num[i]!=num[j]){
+//             j++
+//             num[j] = num[i]
+//         }
+//     }
+//     return j+1
+// }
+// let num = [0,0,1,1,1,2,2,3,3,4]
+// let k = removeDuplicates(num)
+// console.log(num.slice(0,k))
 
-//Return maximum sum from subArray
+// //Return maximum sum from subArray
 
-var maxSubArray = function(nums){
-let sum = 0;
-let maxSum = -Infinity;
-for(let i=0;i<nums.length;i++){
-    if(sum<0) sum=0;
-    sum+=nums[i]
-    maxSum = Math.max(sum,maxSum)
+// var maxSubArray = function(nums){
+// let sum = 0;
+// let start , end, tempS = 0;
+// let maxSum = -Infinity;
+// for(let i=0;i<nums.length;i++){
+//     sum+=nums[i]
+//     if(sum>maxSum){
+//         maxSum = sum;
+//         start = tempS;
+//         end = i
+//     }
+//     if(sum<0){
+//         sum = 0 ;
+//         tempS = i+1
+//     }
+
+// }
+// let subarray=nums.slice(start,end+1);
+// return maxSum,subarray
+// }
+// console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
+
+// //Return the majority element
+
+// var majEl = function(num){
+// let maj = num[0]
+// count = 1
+// for(let i=0; i<num.length;i++){
+//     if(count == 0){
+//         maj = num[i]
+//         count++
+//     }
+//     else if(maj==num[i]) count++
+//     else count--
+// }
+// return maj
+    
+// }
+// console.log(majEl([2,2,2,1,1,2]))
+
+//Trapping the water
+
+var trap = function(height){
+   let left = new Array(height.length)
+   let right = new Array(height.length)
+   let maxLeft = height[0], maxRight = height[height.length-1]
+   left[0] = maxLeft, right[right.length-1] = maxRight
+
+   for(let i=0;i<height.length;i++){
+    maxLeft = Math.max(height[i],maxLeft) 
+    left[i]=maxLeft
+   }
+   for(let i= height.length-2;i>=0;i--){
+    maxRight = Math.max(height[i],maxRight)
+    right[i] = maxRight
+   }
+   let ans = 0;
+   for(let i=0; i<height.length;i++){
+    ans+= Math.min(left[i],right[i])-height[i]
+   }
+   return ans
 }
-return maxSum;
-}
-console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
+console.log(trap([0,1,0,2,1,0,1,3,2,1,2,1]))
