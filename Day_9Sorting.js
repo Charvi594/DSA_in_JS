@@ -1,15 +1,33 @@
 //Bubble Sort 
 //Sort the given array using bubble sort
 
-let arr = [10,5,12,1,13]
-let n = arr.length
-for(let i=0;i<n-1;i++){
-    for (let j=0;j<n-1-i;j++){
-        if(arr[j]>arr[j+1]){
-            let temp = arr[j]
-            arr[j] = arr[j+1]
-            arr[j+1] = temp;
+// let arr1= [10,5,12,1,13]
+// let n1= arr.length
+// for(let i=0;i<n-1;i++){
+//     for (let j=0;j<n-1-i;j++){
+//         if(arr[j]>arr[j+1]){
+//             let temp = arr[j]
+//             arr[j] = arr[j+1]
+//             arr[j+1] = temp;
+//         }
+//     }
+// }
+// console.log(`The sorted array is : ${arr} with the time complexity of O(n^2).`)
+
+//Sort the given array using Selection sort.
+
+let arr = [10,5,2,21,13]
+let n= arr.length
+for(let i = 0; i<n-1;i++){
+    let minIndex = i;
+    for(let j= i+1; j<n;j++){
+        if(arr[j]<arr[minIndex]){
+            minIndex = j;
         }
     }
-}
-console.log(`The sorted array is : ${arr} with the time complexity of O(n^2).`)
+    if(minIndex != i){
+    let temp = arr[i]
+    arr[i] = arr[minIndex]
+    arr[minIndex] = temp;
+}}
+console.log(arr)
