@@ -61,3 +61,17 @@ var find = function(arr){
  return{missing};
 }
 console.log(find([1,2,4,6,3,7,0]))
+
+//XOR
+var find = function(arr){
+   let XOR1 = 0;
+   for(let i=0;i<=arr.length;i++){
+    XOR1^=i;
+   }
+   let XOR2 = 0;
+   for(let i =0;i<arr.length;i++){
+    XOR2^=arr[i];
+   }
+   return XOR1^XOR2;
+}
+console.log(find([1,2,4,6,3,7,0]))
