@@ -250,59 +250,76 @@ const prompt = require("prompt-sync")()
 // console.log(trap([0,1,0,2,1,0,1,3,2,1,2,1]))
 
 //Print pattern
- var prints = function(n){
-   for(let i=1;i<=n;i++){
-      for(let j=1; j<n-i+1;j++){
-         process.stdout.write(j+"")
-      }
-     console.log("")
-   }
- }
- prints(5)
+//  var prints = function(n){
+//    for(let i=1;i<=n;i++){
+//       for(let j=1; j<n-i+1;j++){
+//          process.stdout.write(j+"")
+//       }
+//      console.log("")
+//    }
+//  }
+//  prints(5)
 
- //Return majority element
- var majElement = function (nums){
-let maj = nums[0]
-let count = 1;
-for(let i=0; i<nums.length;i++){
-  if(count==0) maj = nums[i]
-  else if(maj === nums[i]) count++
-  else count--
-}
-return maj
- }
- console.log(majElement([2,2,1,1,1,2,2]))
+//  //Return majority element
+//  var majElement = function (nums){
+// let maj = nums[0]
+// let count = 1;
+// for(let i=0; i<nums.length;i++){
+//   if(count==0) maj = nums[i]
+//   else if(maj === nums[i]) count++
+//   else count--
+// }
+// return maj
+//  }
+//  console.log(majElement([2,2,1,1,1,2,2]))
 
- //Return majority element II
+//  //Return majority element II
 
- var maj = function(num){
-  let cand1 = null, cand2 = null, count1=0, count2 =0
-  for(let i=0;i<num.length;i++){
-    if(cand1 == num[i]) count1++
-    else if(cand2 == num[i]) count2++
-    else if(count1==0){
-      cand1 = num[i]
-      count1 = 1
+//  var maj = function(num){
+//   let cand1 = null, cand2 = null, count1=0, count2 =0
+//   for(let i=0;i<num.length;i++){
+//     if(cand1 == num[i]) count1++
+//     else if(cand2 == num[i]) count2++
+//     else if(count1==0){
+//       cand1 = num[i]
+//       count1 = 1
+//     }
+//     else if(count2 == 0){
+//       cand2 = num[i]
+//       count2  = 1
+//     }
+//     else{
+//       count1--;
+//       count2--
+//     }
+//   }
+//  count1 = count2 = 0 
+// for(let i=0; i<num.length;i++){
+//   if(cand1 == num[i]) count1++
+//   else if(cand2 == num[i]) count2++
+// }
+
+// let res = []
+// const n = num.length
+// if(count1>Math.floor(n/3)) res.push(cand1)
+//   if(count2> Math.floor(n/3)) res.push(cand2)
+//     return res;
+//  }
+//  console.log(maj([2,2,1,1,1,2,2]))
+
+ //Move zeroes to the end of the array keeping the order of other el unchanged.
+
+ let arr = [0,1,0,3,12];
+ let i=0, j=0;
+ while(j<arr.length){
+  if(arr[j]!==0){
+    if(i!==j){
+      let temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
     }
-    else if(count2 == 0){
-      cand2 = num[i]
-      count2  = 1
-    }
-    else{
-      count1--;
-      count2--
-    }
+    i++;
   }
- count1 = count2 = 0 
-for(let i=0; i<num.length;i++){
-  if(cand1 == num[i]) count1++
-  else if(cand2 == num[i]) count2++
-}
-
-let res = []
-const n = num.length
-if(count1>Math.floor(n/3)) res.push(cand1)
-  if(count2> Math.floor(n/3)) res.push(cand2)
-    return res;
+  j++;
  }
- console.log(maj([2,2,1,1,1,2,2]))
+ console.log(arr)
