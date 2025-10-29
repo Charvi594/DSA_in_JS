@@ -34,8 +34,6 @@ for(let num of hash){
     long = Math.max(long,count);
    
     }
-
-
 }
  console.log(long);
 
@@ -47,3 +45,25 @@ for(let num of hash){
 //If it has such element , then increment the curr and count
 //Then compare the longest and the count each time and return
 
+
+
+//Count subarrays with sum equals k
+//Optimised version
+
+let numbs = [1,2,3] , k = 3;      //We defined our array and target
+let counts = 0;             //Initialise count = 0
+let prefixSum = 0;          // Initialised prefixSum = 0
+const hashMap = new Map();  //Created a hashmap
+hashMap.set(0,1);           //set the sum 0 occured once
+for(let numb of numbs){     //Loop through the array
+    prefixSum+= numb;      //Storing prefixSum at every index.
+    
+    if(hashMap.has(prefixSum - k)){ //Check whether hashmap has the value = prefix sum - k;
+        count = count+ hashMap.get(prefixSum-k); //If it has add the prefixsum to the count.
+}
+
+    else{
+        hashMap.set(prefixSum,(hashMap.get(prefixSum)||0)+1) //Else set the prefix sum in the hashMap.
+    }
+}
+console.log(count);
