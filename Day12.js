@@ -48,6 +48,20 @@ for(let num of hash){
 
 
 //Count subarrays with sum equals k
+
+//Brute Force Approach
+let arra = [1,2,3], target = 3;
+let counter = 0;
+for(let i=0;i<arra.length;i++){
+    let sum = 0;
+    for(let j=i;j<arra.length;j++){
+        sum+=arra[j];
+        if(sum===target){
+            counter++;
+        }
+    }
+}
+console.log(`The Brute Force Approach : ${counter}`);
 //Optimised version
 
 let numbs = [1,2,3] , k = 3;      //We defined our array and target
