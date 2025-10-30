@@ -309,17 +309,60 @@ const prompt = require("prompt-sync")()
 
  //Move zeroes to the end of the array keeping the order of other el unchanged.
 
- let arr = [0,1,0,3,12];
- let i=0, j=0;
- while(j<arr.length){
-  if(arr[j]!==0){
-    if(i!==j){
-      let temp = arr[i];
-      arr[i] = arr[j];
-      arr[j] = temp;
-    }
-    i++;
+//  let arr = [0,1,0,3,12];
+//  let i=0, j=0;
+//  while(j<arr.length){
+//   if(arr[j]!==0){
+//     if(i!==j){
+//       let temp = arr[i];
+//       arr[i] = arr[j];
+//       arr[j] = temp;
+//     }
+//     i++;
+//   }
+//   j++;
+//  }
+//  console.log(arr)
+
+//  //Linear Search
+//  var linear = function(arr,x){
+// for(let i=0;i<arr.length;i++){
+//   if(arr[i]===x){
+//     return i;
+//   }
+// }
+// return -1;
+//  }
+//  console.log(linear([1,2,36,4,5,3],4))
+
+
+//Find 3 sum problem
+//Find the three elements of array which when added results in 0.
+let arr = [-1,0,1,2,-1,-4];
+arr.sort((a,b)=>a-b);
+let res=[];
+
+for(let i=0;i<arr.length;i++){
+  if(i>0 && arr[i]==arr[i-1]) continue;
+
+  let left = i+1;
+  let right = arr.length-1;
+while(left<right){
+  let sum = arr[i]+arr[left]+arr[right];
+  if(sum==0){
+    res.push([arr[i],arr[left],arr[right]]);
+    left++;
+    right--;
+
+    while(left<right && arr[left] == arr[left -1]) left++;
+    while(left <right && arr[right]== arr[right-1]) right--;
   }
-  j++;
- }
- console.log(arr)
+  else if(sum<0){
+    left++;
+  }
+  else{
+    right--
+  }
+}
+}
+console.log(res)
