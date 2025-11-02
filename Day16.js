@@ -19,3 +19,11 @@ if(str[i]!==str[j]) return false;
 return isPalindrome(str,i+1,j-1);
 }
 console.log(isPalindrome("madm"));
+
+//Find nth term of fibonacci
+
+function fibo(n){
+    if(n==0 || n==1) return n;
+    return fibo(n-1)+fibo(n-2);
+}
+console.log(fibo(8))
