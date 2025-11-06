@@ -10,7 +10,7 @@ for(let num1 of nums1){
     map.set(num1,(map.get(num1)|| 0 )+1);
 }
 
-for(let i=0;i< nums2.length;i++){
+for(let i of nums2){
        if(map.has(i)&& map.get(i)>0){
             res.push(i);
               map.set(i,map.get(i)-1)
