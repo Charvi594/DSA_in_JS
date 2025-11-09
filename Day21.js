@@ -62,3 +62,38 @@ backs(n,i+1);
 console.log(i);
 }
 backs(10,1)
+
+//Count sum of n natural numbers
+console.log("Sum of n natural numbers")
+function sum(n){
+    if(n == 0 ) return 0;
+    return n + sum(n-1);
+}
+console.log(sum(10))
+
+//Print factorial of n natural numbers.
+console.log("Factorial of n natural numbers.");
+function fact(n){
+    if(n==1) return 1;
+    return n*fact(n-1);
+}
+console.log(fact(4))
+
+//fibonacci series.
+console.log("Print fibonacci Series");
+function fibo(n){
+if(n<=1) return n;
+return fact(n-1)+ fact(n-2);
+}
+console.log(fibo(5));
+
+//Reverse string using recursion.
+console.log("Reverse a string : ");
+function rev(arr,i,j){
+    if(i>=j) return arr.join("");
+    [arr[i],arr[j]] = [arr[j],arr[i]]
+    return rev(arr,i+1,j-1);
+}
+let str = "charvi khandar";
+let arr = str.split("");
+console.log(rev(arr,0,arr.length-1));
