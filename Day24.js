@@ -29,3 +29,15 @@ function nextPermutation(nums){
     console.log(nums);
 }
 nextPermutation([1,2,3])
+
+function findDuplicate(nums) {
+    let set = new Set();
+
+    for (let num of nums) {
+        if (set.has(num)) {
+            return num;   // duplicate found
+        }
+        set.add(num);
+    }
+}
+console.log(findDuplicate([3,1,3,4,2]))
